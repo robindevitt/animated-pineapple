@@ -81,7 +81,7 @@ function animated_pineapple_block_render_products( $attr ) {
 					$html .= '<a 
 						class="button"
 						style="' . $button_style . '"
-						href="?add-to-cart=' . esc_attr( $product->get_id() ) . '>' .
+						href="?add-to-cart=' . esc_attr( $product->get_id() ) . '">' .
 							__( 'Add to cart', 'animated-pineapple' ) .
 						'</a>';
 				} else {
