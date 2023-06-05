@@ -5,6 +5,7 @@ import './editor.scss';
 
 import {
 	ColorPicker,
+	PanelRow,
 	PanelBody,
 	ToggleControl,
 	RangeControl
@@ -46,80 +47,90 @@ export default function Edit({ attributes, setAttributes }) {
 		<>
 			<InspectorControls>
 				<PanelBody title={__('Product Spacing', 'animated-pineapple')} initialOpen={ false }>
-					<RangeControl
-						label={__('Set a value between 0 and 100.', 'animated-pineapple')}
-						value={productGap}
-						onChange={
-							function (value) {
-								setAttributes({ productGap: value });
+					<PanelRow>
+						<RangeControl
+							label={__('Set a value between 0 and 100.', 'animated-pineapple')}
+							value={productGap}
+							onChange={
+								function (value) {
+									setAttributes({ productGap: value });
+								}
 							}
-						}
-						min={0}
-						max={100}
-					/>
+							min={0}
+							max={100}
+						/>
+					</PanelRow>
 				</PanelBody>
 				<PanelBody title={__('Product Title Color', 'animated-pineapple')} initialOpen={false}>
-					{displayProductTitle ? (
-						<ColorPicker
-							color={productTitleColor}
-							onChangeComplete={
-								function (color) {
-									setAttributes({ productTitleColor: color.hex });
+					<PanelRow>
+						{displayProductTitle ? (						
+							<ColorPicker
+								color={productTitleColor}
+								onChangeComplete={
+									function (color) {
+										setAttributes({ productTitleColor: color.hex });
+									}
 								}
-							}
-							disableAlpha
-						/>
-					) : (
-						__('Enable the Display Product Title\'s option.', 'animated-pineapple')
-					) }
+								disableAlpha
+							/>
+						) : (
+							__('Enable the Display Product Title\'s option.', 'animated-pineapple')
+						) }
+					</PanelRow>
 				</PanelBody>
 				<PanelBody title={__('Product Price Color', 'animated-pineapple')} initialOpen={false}>
-					{displayProductPrice ? (
-						<ColorPicker
-							color={productPriceColor}
-							onChangeComplete={
-								function (color) {
-									setAttributes({ productPriceColor: color.hex });
+					<PanelRow>
+						{displayProductPrice ? (
+							<ColorPicker
+								color={productPriceColor}
+								onChangeComplete={
+									function (color) {
+										setAttributes({ productPriceColor: color.hex });
+									}
 								}
-							}
-							disableAlpha
-						/>
-					) : (
-						__('Enable the Display Product Title\'s option.', 'animated-pineapple')
-					)}
+								disableAlpha
+							/>
+						) : (
+							__('Enable the Display Product Title\'s option.', 'animated-pineapple')
+						)}
+					</PanelRow>
 				</PanelBody>
 				<PanelBody title={__('Product Button Text Color', 'animated-pineapple')} initialOpen={false}>
-					{displayAddToCartButton ? (
-						<ColorPicker
-							color={productButtonTextColor}
-							onChangeComplete={
-								function (color) {
-									setAttributes({ productButtonTextColor: color.hex });
+					<PanelRow>
+						{displayAddToCartButton ? (
+							<ColorPicker
+								color={productButtonTextColor}
+								onChangeComplete={
+									function (color) {
+										setAttributes({ productButtonTextColor: color.hex });
+									}
 								}
-							}
-							disableAlpha
-						/>
-					) : (
-						__('Enable the Display Product Title\'s option.', 'animated-pineapple')
-					)}
+								disableAlpha
+							/>
+						) : (
+							__('Enable the Display Product Title\'s option.', 'animated-pineapple')
+						)}
+					</PanelRow>
 				</PanelBody>
 				<PanelBody title={__('Product Button Background Color', 'animated-pineapple')} initialOpen={false}>
-					{displayAddToCartButton ? (
-						<ColorPicker
-							color={productButtonBgColor}
-							onChangeComplete={
-								function (color) {
-									setAttributes({ productButtonBgColor: color.hex });
+					<PanelRow>
+						{displayAddToCartButton ? (
+							<ColorPicker
+								color={productButtonBgColor}
+								onChangeComplete={
+									function (color) {
+										setAttributes({ productButtonBgColor: color.hex });
+									}
 								}
-							}
-							disableAlpha
-						/>
-					) : (
-						__('Enable the Display Product Title\'s option.', 'animated-pineapple')
-					)}
+								disableAlpha
+							/>
+						) : (
+							__('Enable the Display Product Title\'s option.', 'animated-pineapple')
+						)}
+					</PanelRow>
 				</PanelBody>
 				<PanelBody title={__('Product Display Options', 'animated-pineapple')} initialOpen={false}>
-					
+					<PanelRow>
 						<ToggleControl
 							label={__('Display Product Sale Tag\'s', 'animated-pineapple')}
 							checked={displaySaleTag}
@@ -127,6 +138,8 @@ export default function Edit({ attributes, setAttributes }) {
 								setAttributes({ displaySaleTag: !displaySaleTag })
 							}
 						/>
+					</PanelRow>
+					<PanelRow>
 						<ToggleControl
 							label={__('Display Product Title\'s', 'animated-pineapple')}
 							checked={displayProductTitle}
@@ -134,6 +147,8 @@ export default function Edit({ attributes, setAttributes }) {
 								setAttributes({ displayProductTitle: !displayProductTitle })
 							}
 						/>
+					</PanelRow>
+					<PanelRow>
 						<ToggleControl
 							label={__('Display Product Price\'s', 'animated-pineapple')}
 							checked={displayProductPrice}
@@ -141,6 +156,8 @@ export default function Edit({ attributes, setAttributes }) {
 								setAttributes({ displayProductPrice: !displayProductPrice })
 							}
 						/>
+					</PanelRow>
+					<PanelRow>
 						<ToggleControl
 							label={__('Display Product Button\'s', 'animated-pineapple')}
 							checked={displayAddToCartButton}
@@ -148,8 +165,7 @@ export default function Edit({ attributes, setAttributes }) {
 								setAttributes({ displayAddToCartButton: !displayAddToCartButton })
 							}
 						/>
-					
-
+					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
 			<div {...useBlockProps()} style={{ gap: productGap }}>
