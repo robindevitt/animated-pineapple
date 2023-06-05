@@ -78,9 +78,19 @@ function animated_pineapple_block_render_products( $attr ) {
 			if ( isset( $attr['displayAddToCartButton'] ) && $attr['displayAddToCartButton'] ) {
 				$button_style = 'color:' . $attr['productButtonTextColor'] . ';background-color:' . $attr['productButtonBgColor'] . ';border-color:' . $attr['productButtonBgColor'] . ';';
 				if ( $product->is_type( 'simple' ) ) {
-					$html .= '<a href="?add-to-cart=' . esc_attr( $product->get_id() ) . '" data-quantity="1" style="' . $button_style . '" class="button wp-element-button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="' . esc_attr( $product->get_id() ) . '" data-product_sku="' . esc_attr( $product->get_sku() ) . '" >' . __( 'Add to cart', 'animated-pineapple' ) . '</a>';
+					$html .= '<a 
+						class="button"
+						style="' . $button_style . '"
+						href="?add-to-cart=' . esc_attr( $product->get_id() ) . '>' .
+							__( 'Add to cart', 'animated-pineapple' ) .
+						'</a>';
 				} else {
-					$html .= '<a class="button" style="' . $button_style . '" href="' . get_permalink( $product->get_id() ) . '">' . __( 'View product', 'animated-pineapple' ) . '</a>';
+					$html .= '<a 
+						class="button" 
+						style="' . $button_style . '" 
+						href="' . get_permalink( $product->get_id() ) . '">' .
+							__( 'View product', 'animated-pineapple' ) .
+						'</a>';
 				}
 			}
 
@@ -90,9 +100,3 @@ function animated_pineapple_block_render_products( $attr ) {
 	}
 	return $html;
 }
-
-function wpdocs_styles_method() {
-		$custom_css = ".mycolor{ background: {$color};}";
-		wp_add_inline_style( 'animated-pineapple-block-animated-pineapple-style', $custom_css );
-}
-add_action( 'wp_enqueue_scripts', 'wpdocs_styles_method' );
