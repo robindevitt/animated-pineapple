@@ -1,0 +1,55 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "animated-pineapple-block/animated-pineapple",
+	"version": "1.0.0",
+	"title": "Animated Pineapple",
+	"category": "widgets",
+	"icon": "store",
+	"description": "A custom block to showcase recently added products.",
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"productGap": {
+			"type": "number",
+			"default": 10
+		},
+		"displaySaleTag": {
+			"type": "boolean",
+			"default": true
+		},
+		"displayProductTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"displayProductPrice": {
+			"type": "boolean",
+			"default": true
+		},
+		"displayAddToCartButton": {
+			"type": "boolean",
+			"default": true
+		},
+		"productTitleColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"productPriceColor": {
+			"type": "string",
+			"default": "#000000"
+		}, 
+		"productButtonTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"productButtonBgColor": {
+			"type": "string",
+			"default": "#000000"
+		}
+	},
+	"textdomain": "animated-pineapple",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
