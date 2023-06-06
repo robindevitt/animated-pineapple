@@ -40,16 +40,19 @@ function animated_pineapple_block_render_products( $attr ) {
 	$query    = new WC_Product_Query(
 		array(
 			'status'  => 'publish',
-			'limit'   => 3,
+			'limit'   => 33,
 			'orderby' => 'date',
 			'order'   => 'DESC',
 		)
 	);
 	$products = $query->get_products();
 
+	var_dump( $attr );
+
 	$html = '';
 	if ( $products ) {
-		$html .= '<div class="wp-block-animated-pineapple-block-animated-pineapple">';
+		$block_style = 'gap:' . $attr['productGap'] . 'px;row-gap:' . $attr['productGap'] . 'px;';
+		$html       .= '<div class="wp-block-animated-pineapple-block-animated-pineapple" style="' . $block_style . '">';
 		foreach ( $products as $product ) {
 			$html .= '<div class="animated-pineapple-product">';
 

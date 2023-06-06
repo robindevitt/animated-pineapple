@@ -27,7 +27,7 @@ export default function Edit({ attributes, setAttributes }) {
 	const fetchProducts = async () => {
 		try {
 			const fetchedProducts = await wp.apiFetch({
-				path: '/wc/v2/products?per_page=3&status=publish',
+				path: '/wc/v2/products?status=publish',
 			});
 			return fetchedProducts;
 		} catch (error) {
@@ -168,7 +168,7 @@ export default function Edit({ attributes, setAttributes }) {
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
-			<div {...useBlockProps()} style={{ gap: productGap }}>
+			<div {...useBlockProps()} style={{ gap: productGap, rowGap: productGap }}>
 				{products.map((product) => (
 					<div class="animated-pineapple-product" key={product.id}>
 						<img src={product.images[0].src}/>

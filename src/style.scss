@@ -6,9 +6,10 @@
  */
 
 .wp-block-animated-pineapple-block-animated-pineapple {
-	display: flex;
-	flex-wrap: nowrap;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 	gap: 10px;
+	row-gap: 10px;
 
 	.animated-pineapple-product {
 		flex: 1;

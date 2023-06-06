@@ -48,7 +48,7 @@ function Edit(_ref) {
   const fetchProducts = async () => {
     try {
       const fetchedProducts = await wp.apiFetch({
-        path: '/wc/v2/products?per_page=3&status=publish'
+        path: '/wc/v2/products?status=publish'
       });
       return fetchedProducts;
     } catch (error) {
@@ -147,7 +147,8 @@ function Edit(_ref) {
     })
   })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), {
     style: {
-      gap: productGap
+      gap: productGap,
+      rowGap: productGap
     }
   }), products.map(product => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     class: "animated-pineapple-product",
@@ -381,7 +382,7 @@ function _extends() {
   \************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"animated-pineapple-block/animated-pineapple","version":"1.0.0","title":"Animated Pineapple","category":"widgets","icon":"store","description":"A custom block to showcase recently added products.","supports":{"html":false},"attributes":{"productGap":{"type":"number","default":10},"displaySaleTag":{"type":"boolean","default":true},"displayProductTitle":{"type":"boolean","default":true},"displayProductPrice":{"type":"boolean","default":true},"displayAddToCartButton":{"type":"boolean","default":true},"productTitleColor":{"type":"string","default":"#000000"},"productPriceColor":{"type":"string","default":"#000000"},"productButtonTextColor":{"type":"string","default":"#ffffff"},"productButtonBgColor":{"type":"string","default":"#000000"}},"textdomain":"animated-pineapple","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"animated-pineapple-block/animated-pineapple","version":"1.0.0","title":"Animated Pineapple","category":"widgets","icon":"store","description":"A custom block to showcase recently added products.","supports":{"html":false},"attributes":{"productQuantity":{"type":"number","default":6},"productGap":{"type":"number","default":10},"displaySaleTag":{"type":"boolean","default":true},"displayProductTitle":{"type":"boolean","default":true},"displayProductPrice":{"type":"boolean","default":true},"displayAddToCartButton":{"type":"boolean","default":true},"productTitleColor":{"type":"string","default":"#000000"},"productPriceColor":{"type":"string","default":"#000000"},"productButtonTextColor":{"type":"string","default":"#ffffff"},"productButtonBgColor":{"type":"string","default":"#000000"}},"textdomain":"animated-pineapple","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

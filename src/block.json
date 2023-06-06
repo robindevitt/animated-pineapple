@@ -11,6 +11,10 @@
 		"html": false
 	},
 	"attributes": {
+		"productQuantity": {
+			"type": "number",
+			"default": 6
+		},
 		"productGap": {
 			"type": "number",
 			"default": 10
