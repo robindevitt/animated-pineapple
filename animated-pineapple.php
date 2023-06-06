@@ -47,8 +47,6 @@ function animated_pineapple_block_render_products( $attr ) {
 	);
 	$products = $query->get_products();
 
-	var_dump( $attr );
-
 	$html = '';
 	if ( $products ) {
 		$block_style = 'gap:' . $attr['productGap'] . 'px;row-gap:' . $attr['productGap'] . 'px;';
