@@ -56,9 +56,13 @@ function Edit(_ref) {
     }
   };
   const [products, setProducts] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+  const [isLoading, setIsLoading] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(true);
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    setIsLoading(true); // Set loading state to true before fetching products
     fetchProducts().then(fetchedProducts => {
       setProducts(fetchedProducts);
+    }).finally(() => {
+      setIsLoading(false); // Set loading state to false after fetching products
     });
   }, []);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.PanelBody, {
@@ -150,7 +154,7 @@ function Edit(_ref) {
       gap: productGap,
       rowGap: productGap
     }
-  }), products.map(product => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+  }), isLoading ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("p", null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__.__)('Fetching products...', 'animated-pineapple')) : products.map(product => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     class: "animated-pineapple-product",
     key: product.id
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("img", {

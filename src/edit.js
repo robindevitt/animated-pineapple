@@ -36,11 +36,17 @@ export default function Edit({ attributes, setAttributes }) {
 	};
 
 	const [products, setProducts] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		fetchProducts().then((fetchedProducts) => {
-			setProducts(fetchedProducts);
-		});
+		setIsLoading(true); // Set loading state to true before fetching products
+		fetchProducts()
+			.then((fetchedProducts) => {
+				setProducts(fetchedProducts);
+			})
+			.finally(() => {
+				setIsLoading(false); // Set loading state to false after fetching products
+			});
 	}, []);
 
 	return (
@@ -169,7 +175,9 @@ export default function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 			</InspectorControls>
 			<div {...useBlockProps()} style={{ gap: productGap, rowGap: productGap }}>
-				{products.map((product) => (
+				{isLoading ? (
+					<p>{__('Fetching products...', 'animated-pineapple')}</p>
+				) : ( products.map((product) => (
 					<div class="animated-pineapple-product" key={product.id}>
 						<img src={product.images[0].src}/>
 						{displaySaleTag && ( 
@@ -211,7 +219,7 @@ export default function Edit({ attributes, setAttributes }) {
 							</a>
 						)}
 					</div>
-				))}
+				)))}
 			</div>
 		</>
 	);
